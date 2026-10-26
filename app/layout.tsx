@@ -26,14 +26,24 @@ export const metadata: Metadata = {
 };
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   const locale = await getLocale();
-  return <html lang={locale} suppressHydrationWarning className={`${display.variable} ${body.variable}`}>
-    <body>
-      <NextIntlClientProvider>
-        <Providers locale={locale}>
-          <GlobalCursor />
-          {children}
-        </Providers>
-      </NextIntlClientProvider>
-    </body>
-  </html>;
+  return (
+    <html lang={locale} suppressHydrationWarning className={`${display.variable} ${body.variable}`}>
+      <head>
+        {/* LCS First-Party Tracker */}
+        <script
+          defer
+          src="https://lcs-service.onrender.com/tracker/lcs-tracker.js"
+          data-endpoint="https://lcs-service.onrender.com/api/track"
+        />
+      </head>
+      <body>
+        <NextIntlClientProvider>
+          <Providers locale={locale}>
+            <GlobalCursor />
+            {children}
+          </Providers>
+        </NextIntlClientProvider>
+      </body>
+    </html>
+  );
 }

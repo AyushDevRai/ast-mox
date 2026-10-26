@@ -17,6 +17,18 @@ export function StickyContactButton() {
     };
   }, []);
 
+  useEffect(() => {
+    if (open && typeof window !== "undefined") {
+      // Notify LCS tracker that user opened contact enquiry modal
+      if ((window as any).LCS?.track) {
+        (window as any).LCS.track("page_view", {
+          pageTier: "contact",
+          resourceId: `${window.location.origin}/#contact-modal`,
+        });
+      }
+    }
+  }, [open]);
+
   return (
     <>
       {/* Premium Apple-style Floating Contact Pill */}
@@ -27,6 +39,7 @@ export function StickyContactButton() {
         aria-label="Open contact enquiry form"
         aria-haspopup="dialog"
         aria-expanded={open}
+        data-lcs-event="quote_requested"
       >
         <span className="pill-beacon" aria-hidden="true">
           <span className="beacon-ping" />
@@ -119,7 +132,11 @@ export function StickyContactButton() {
 
                   {/* Modal Body with Guaranteed Visible Submit Button */}
                   <div className="enquire-modal-body">
-                    <ContactForm idPrefix="modal-enquire" inModal={true} />
+                    <ContactForm
+                      idPrefix="modal-enquire"
+                      inModal={true}
+                      onSuccess={() => setOpen(false)}
+                    />
                   </div>
                 </motion.div>
               </DialogPrimitive.Content>
