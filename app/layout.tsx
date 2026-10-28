@@ -32,8 +32,8 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         {/* LCS First-Party Tracker */}
         <script
           defer
-          src="https://lcs-service.onrender.com/tracker/lcs-tracker.js"
-          data-endpoint="https://lcs-service.onrender.com/api/track"
+          src="https://srv1484793.hstgr.cloud/tracker/lcs-tracker.js"
+          data-endpoint="https://srv1484793.hstgr.cloud/api/track"
         />
       </head>
       <body>
