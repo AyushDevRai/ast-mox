@@ -165,7 +165,7 @@ export function ContactPageView() {
               <p className="text-sm text-[var(--home-muted-dark,#6b7a70)] mt-1 mb-4">
                 Submit your project requirements below. All enquiries are instantly processed by AST’s technical sales team.
               </p>
-              <ContactForm idPrefix="page-contact" formUrl="http://crm.eastasia.cloudapp.azure.com/crm-form/sales" />
+              <ContactForm idPrefix="page-contact" formUrl="https://srv1484793.hstgr.cloud/crm-form/sales" />
             </div>
           </div>
         </section>

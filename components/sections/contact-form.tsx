@@ -43,7 +43,7 @@ export function ContactForm({
   idPrefix = "contact",
   onSuccess,
   inModal = false,
-  formUrl = "http://crm.eastasia.cloudapp.azure.com/crm-form/sales",
+  formUrl = "https://srv1484793.hstgr.cloud/crm-form/sales",
   useIframe = false,
 }: ContactFormProps) {
   const [values, setValues] = useState<CrmSalesValues>(INITIAL_VALUES);
@@ -586,7 +586,7 @@ export function ContactForm({
             </button>
           </div>
           <p className="modal-privacy-text">
-            🔒 All project details are securely routed to AST&apos;s technical sales desk on Azure CRM.
+            🔒 All project details are securely routed to AST&apos;s technical sales desk CRM.
           </p>
         </div>
       ) : (

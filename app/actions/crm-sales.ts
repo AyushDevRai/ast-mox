@@ -5,7 +5,7 @@ import { crmSalesSchema, type CrmSalesResult, type CrmSalesValues } from "@/lib/
 const CRM_BASE_URL =
   process.env.CRM_BASE_URL ||
   process.env.NEXT_PUBLIC_CRM_BASE_URL ||
-  "http://crm.eastasia.cloudapp.azure.com";
+  "https://srv1484793.hstgr.cloud";
 
 export async function submitCrmSalesLead(input: unknown): Promise<CrmSalesResult> {
   const parsed = crmSalesSchema.safeParse(input);
